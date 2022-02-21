@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Hello , My Spring Boot Angular!</title>
+</head>
+<body>
+  <h1>Hello , Spring Boot !</h1>
+
+  <form th:action="@{/show}" th:object="${UserForm}" method="post">
+    <table>
+      <caption>User Search</caption>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>EMAIL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td th:text="*{id}"></td>
+          <td th:text="*{name}"></td>
+          <td th:text="*{email}"></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Name(optional): <input type="text" th:field="*{name}" /> <!-- <em
+        th:if="${#fields.hasErrors(name)}" th:errors="*{name}">NameError
+      </em> -->
+    </p>
+
+    <p>
+      <input type="submit" value="Submit" />
+    </p>
+  </form>
+</body>
+</html>
